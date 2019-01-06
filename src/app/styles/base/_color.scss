@@ -1,0 +1,19 @@
+$primary: #3867fa;
+$on-primary: #ffffff;
+$dark: #222222;
+
+.primary-background {
+  background-color: $primary;
+}
+
+.primary-text {
+  color: $primary;
+}
+
+.text-on-primary {
+  color: $on-primary;
+}
+
+.dark-background {
+  background: $dark;
+}

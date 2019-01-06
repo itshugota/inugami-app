@@ -1,0 +1,13 @@
+$spacing-unit: 24px;
+
+.small-padding-all {
+  padding: $spacing-unit * 0.5;
+}
+
+.normal-padding-all {
+  padding: $spacing-unit;
+}
+
+.large-padding-all {
+  padding: $spacing-unit * 2;
+}
