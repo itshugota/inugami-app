@@ -1,0 +1,5 @@
+@import '../base/color';
+
+md-input-container .md-input {
+  @include dark-border-color;
+}

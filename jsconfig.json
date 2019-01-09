@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "Assets/*": ["assets/*"],
+      "Config/*": ["src/app/config/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

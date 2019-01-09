@@ -6,7 +6,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const distPath = path.join(__dirname, 'dist');
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/index.js'],
+  entry: './src/index.js',
   output: {
     path: distPath,
     filename: 'bundle.js',
@@ -31,18 +31,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          babelrc: true,
-          cacheDirectory: true
-        }
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
         loader: 'file-loader?outputPath=./images',
         include: path.resolve(__dirname, 'assets/images')
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)$/,
+        loader: 'file-loader?outputPath=./fonts',
+        include: path.resolve(__dirname, 'assets/fonts')
       },
       {
         test: /\.html$/,
@@ -56,6 +52,6 @@ module.exports = {
   },
 
   resolve: {
-    alias: { Assets: path.resolve(__dirname, 'assets') }
+    alias: { Assets: path.resolve(__dirname, 'assets'), Config: path.resolve(__dirname, 'src/app/config') }
   }
 };

@@ -1,0 +1,24 @@
+$on-primary: #ffffff;
+$on-dark: #ffffff;
+$dark: #212121;
+$grey: #757575;
+
+@mixin dark-border-color {
+  border-color: $dark;
+}
+
+.action-color {
+  color: $grey;
+}
+
+.text-on-primary {
+  color: $on-primary;
+}
+
+.text-on-dark {
+  color: $on-dark;
+}
+
+.dark-background {
+  background: $dark;
+}
