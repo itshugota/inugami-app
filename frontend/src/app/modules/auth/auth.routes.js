@@ -13,7 +13,6 @@ authModule.config([
 
     const loginPageUrl = APP_ROUTES.AUTH.CHILDREN.LOGIN.FULL_URL;
 
-    $urlRouterProvider.when('', loginPageUrl);
     $urlRouterProvider.when('/', loginPageUrl);
 
     $urlRouterProvider.otherwise(loginPageUrl);
