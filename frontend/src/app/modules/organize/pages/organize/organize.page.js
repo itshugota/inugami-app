@@ -13,11 +13,8 @@ import { Category } from 'Enums/category.enum';
 const organizeModule = angular.module('app.main.organize');
 
 organizeModule.component('organizePage', {
-  bindings: {
-    appbarData: '<'
-  },
   template: organizePageTemplate,
-  controller: function($scope, $timeout, ToDoService) {
+  controller: function($scope, $timeout, ToDoService, AppBarService) {
     let vm = this;
 
     vm.backgroundUrl = wolfHowlingBackground;
@@ -37,16 +34,16 @@ organizeModule.component('organizePage', {
       let eliminateToDos;
 
       try {
-        doFirstToDos = await ToDoService.getToDos(Category.DO_FIRST, vm.appbarData.statusFilter);
-        scheduleToDos = await ToDoService.getToDos(Category.SCHEDULE, vm.appbarData.statusFilter);
-        delegateToDos = await ToDoService.getToDos(Category.DELEGATE, vm.appbarData.statusFilter);
-        eliminateToDos = await ToDoService.getToDos(Category.ELIMINATE, vm.appbarData.statusFilter);
+        doFirstToDos = await ToDoService.getToDos(Category.DO_FIRST, AppBarService.appBarData.statusFilter);
+        scheduleToDos = await ToDoService.getToDos(Category.SCHEDULE, AppBarService.appBarData.statusFilter);
+        delegateToDos = await ToDoService.getToDos(Category.DELEGATE, AppBarService.appBarData.statusFilter);
+        eliminateToDos = await ToDoService.getToDos(Category.ELIMINATE, AppBarService.appBarData.statusFilter);
 
-        if (vm.appbarData.toDoFilter) {
-          doFirstToDos = doFirstToDos.filter(toDo => toDo.name.includes(vm.appbarData.toDoFilter));
-          scheduleToDos = scheduleToDos.filter(toDo => toDo.name.includes(vm.appbarData.toDoFilter));
-          delegateToDos = delegateToDos.filter(toDo => toDo.name.includes(vm.appbarData.toDoFilter));
-          eliminateToDos = eliminateToDos.filter(toDo => toDo.name.includes(vm.appbarData.toDoFilter));
+        if (AppBarService.appBarData.toDoFilter) {
+          doFirstToDos = doFirstToDos.filter(toDo => toDo.name.includes(AppBarService.appBarData.toDoFilter));
+          scheduleToDos = scheduleToDos.filter(toDo => toDo.name.includes(AppBarService.appBarData.toDoFilter));
+          delegateToDos = delegateToDos.filter(toDo => toDo.name.includes(AppBarService.appBarData.toDoFilter));
+          eliminateToDos = eliminateToDos.filter(toDo => toDo.name.includes(AppBarService.appBarData.toDoFilter));
         }
       } catch (err) {
         console.error(err);

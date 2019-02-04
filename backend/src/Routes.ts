@@ -1,8 +1,8 @@
 import { Application } from 'express';
 
-import { authHandler } from '../helpers/error-handlers/authHandler';
-import { AuthController } from '../controllers/AuthController';
-import { ToDoController } from '../controllers/ToDoController';
+import { authHandler } from './middlewares/handlers/authHandler';
+import { AuthController } from './controllers/AuthController';
+import { ToDoController } from './controllers/ToDoController';
 
 class Routes {
   public routes(expressApp: Application): void {

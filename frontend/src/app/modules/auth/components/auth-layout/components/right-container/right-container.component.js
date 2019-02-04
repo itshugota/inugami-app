@@ -14,9 +14,5 @@ authModule.component('rightContainer', {
     vm.logoUrl = mainLogo;
     vm.logoText = 'Inugami';
     vm.isLoading = false;
-
-    vm.reload = function() {
-      $scope.$digest();
-    };
   }
 });

@@ -18,10 +18,9 @@ const organizeModule = angular.module('app.main.organize');
 organizeModule.component('todoCard', {
   bindings: {
     toDo: '=',
-    appbarData: '<'
   },
   template: toDoCardTemplate,
-  controller: function(ToDoService) {
+  controller: function(ToDoService, AppBarService) {
     let vm = this;
 
     vm.starIconUrl = starIcon;
@@ -35,7 +34,9 @@ organizeModule.component('todoCard', {
     vm.isLoading = false;
 
     vm.$onInit = function() {
-      if (vm.appbarData.statusFilter === ToDoStatus.COMPLETED) {
+      vm.appBarService = AppBarService;
+
+      if (vm.toDo.status === ToDoStatus.COMPLETED) {
         vm.checkboxTooltip = 'Unmark completed';
       }
 

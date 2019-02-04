@@ -2,13 +2,14 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import mongoose from 'mongoose';
 import passport from 'passport';
+import 'express-async-errors';
 
 import keys from './config/keys';
 import { configPassport } from './config/passport';
-import { Routes } from './routes/Routes';
+import { Routes } from './Routes';
 
-import { mongooseErrorHandler } from './helpers/error-handlers/mongooseErrorHandler';
-import { defaultErrorHandler } from './helpers/error-handlers/defaultErrorHandler';
+import { mongooseErrorHandler } from './middlewares/handlers/mongooseErrorHandler';
+import { defaultErrorHandler } from './middlewares/handlers/defaultErrorHandler';
 
 class App {
   public expressApp: express.Application;
@@ -33,6 +34,17 @@ class App {
     // Config passport middleware for authentication
     this.expressApp.use(passport.initialize());
     configPassport(passport);
+
+    // Always redirect to https instead of http when in production
+    if (process.env.NODE_ENV === 'production') {
+      this.expressApp.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https') {
+          res.redirect(`https://${req.header('host')}${req.url}`);
+        } else {
+          next();
+        }
+      });
+    }
   }
 
   private configPostRouteMiddlewares(): void {
@@ -51,6 +63,7 @@ class App {
       );
       console.log('MongoDB connected.');
     } catch (err) {
+      console.log('Could not connect to MongoDB.');
       console.error(err);
     }
   }

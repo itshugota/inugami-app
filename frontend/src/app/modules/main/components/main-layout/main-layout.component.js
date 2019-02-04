@@ -8,7 +8,5 @@ mainModule.component('mainLayout', {
   template: mainLayoutTemplate,
   controller: function() {
     let vm = this;
-
-    vm.appbarData = {};
   }
 });

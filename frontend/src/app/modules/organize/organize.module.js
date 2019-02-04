@@ -12,4 +12,3 @@ require('./pages/organize/organize.page');
 require('./pages/todo-dialog/components/dialog-toolbar/dialog-toolbar.component');
 require('./pages/todo-dialog/components/manage-subtasks/manage-subtasks.component');
 require('./pages/todo-dialog/todo-dialog.page');
-require('./organize.services');

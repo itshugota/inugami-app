@@ -11,8 +11,7 @@ const authModule = angular.module('app.auth');
 
 authModule.component('registerForm', {
   bindings: {
-    isLoading: '=',
-    reload: '&'
+    isLoading: '='
   },
   template: registerFormTemplate,
   controller: function($scope, $state, AuthService) {
@@ -39,9 +38,6 @@ authModule.component('registerForm', {
 
         vm.isLoading = false;
 
-        vm.reload();
-
-        $scope.$digest();
         return;
       }
 

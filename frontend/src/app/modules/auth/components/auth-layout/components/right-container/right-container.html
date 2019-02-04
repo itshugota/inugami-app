@@ -4,6 +4,6 @@
   {{ $ctrl.logoText }}
 </h1>
 
-<div class="width--80-percent" ui-view="form" is-loading="$ctrl.isLoading" reload="$ctrl.reload()"></div>
+<div class="width--80-percent" ui-view="form" is-loading="$ctrl.isLoading"></div>
 
 <paper-loading ng-if="$ctrl.isLoading"></paper-loading>

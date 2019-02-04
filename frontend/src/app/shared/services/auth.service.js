@@ -80,6 +80,6 @@ class AuthService {
   }
 }
 
-const authModule = angular.module('app.auth');
+export { AuthService };
 
-authModule.service('AuthService', AuthService);
+export default AuthService;

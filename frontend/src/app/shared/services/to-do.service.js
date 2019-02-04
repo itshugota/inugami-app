@@ -92,6 +92,6 @@ class ToDoService {
   }
 }
 
-const organizeModule = angular.module('app.main.organize');
+export { ToDoService };
 
-organizeModule.service('ToDoService', ToDoService);
+export default ToDoService;

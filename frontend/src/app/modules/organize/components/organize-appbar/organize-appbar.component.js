@@ -11,25 +11,27 @@ organizeModule.component('organizeAppbar', {
     appbarData: '='
   },
   template: organizeAppbarTemplate,
-  controller: function($element, ToDoService) {
+  controller: function($element, ToDoService, AppBarService) {
     let vm = this;
 
     vm.appbarTitle = 'Organize To-dos';
 
+    vm.appBarService = AppBarService;
+
     vm.isActiveSelected = true;
 
     vm.selectActiveToDos = function() {
-      vm.appbarData.statusFilter = ToDoStatus.ACTIVE;
+      vm.appBarService.appBarData.statusFilter = ToDoStatus.ACTIVE;
       vm.isActiveSelected = true;
       ToDoService.notifyObservers();
     };
 
     vm.changeNameFilter = function() {
       ToDoService.notifyObservers();
-    }
+    };
 
     vm.selectCompletedToDos = function() {
-      vm.appbarData.statusFilter = ToDoStatus.COMPLETED;
+      vm.appBarService.appBarData.statusFilter = ToDoStatus.COMPLETED;
       vm.isActiveSelected = false;
       ToDoService.notifyObservers();
     };
@@ -37,7 +39,7 @@ organizeModule.component('organizeAppbar', {
     $element.addClass('layout-row layout-align-start-center full-width');
 
     vm.$onInit = function() {
-      vm.appbarData = {
+      AppBarService.appBarData = {
         statusFilter: ToDoStatus.ACTIVE
       };
     };

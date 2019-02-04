@@ -4,12 +4,16 @@ import { HTTPStatus } from '../../enums/HTTPStatusEnum';
 
 const defaultErrorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
   console.error(err);
+
+  const message = 'Some unhandled error occured on the backend side.';
   if (Object.keys(err).length === 0) {
     err = {
+      message,
       unhandledError: `${err}`
     };
   }
-  const apiErrorResponse = new ApiErrorResponse(false, 'Some unhandled error occured on the backend side.', err);
+
+  const apiErrorResponse = new ApiErrorResponse(false, message, err);
   return res.status(HTTPStatus.BAD_REQUEST).json(apiErrorResponse);
 };
 

@@ -11,8 +11,7 @@ const authModule = angular.module('app.auth');
 
 authModule.component('loginForm', {
   bindings: {
-    isLoading: '=',
-    reload: '&'
+    isLoading: '='
   },
   template: loginFormTemplate,
   controller: [
@@ -44,9 +43,6 @@ authModule.component('loginForm', {
 
           vm.isLoading = false;
 
-          vm.reload();
-
-          $scope.$digest();
           return;
         }
 

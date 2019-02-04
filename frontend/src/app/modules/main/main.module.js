@@ -17,4 +17,3 @@ angular.module('app.main', [
 require('./components/sidebar/sidebar.component');
 require('./components/main-layout/main-layout.component');
 require('./main.routes');
-require('./main.services');

@@ -6,7 +6,7 @@ html
     script.
       function authenticate() {
         const authToken = "#{authToken}";
-        window.opener.postMessage({ token: authToken }, 'http://localhost:3000');
+        window.opener.postMessage({ token: authToken }, "#{redirectUrl}");
         window.close();
       };
       authenticate();
