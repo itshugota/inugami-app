@@ -14,7 +14,7 @@
     "angular-aria": "1.8.2",
     "angular-material": "1.2.2",
     "angular-messages": "1.8.2",
-    "gsap": "2.0.2",
+    "gsap": "3.6.0",
     "jwt-decode": "3.1.2",
     "moment": "2.29.1",
     "ng-material-datetimepicker": "1.19.7",
