@@ -16,7 +16,7 @@
     "angular-messages": "1.8.2",
     "gsap": "2.0.2",
     "jwt-decode": "3.1.2",
-    "moment": "2.29.1",
+    "moment": "2.29.4",
     "ng-material-datetimepicker": "1.19.7",
     "ngstorage": "0.3.11",
     "url-join": "4.0.1"
